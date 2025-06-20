@@ -23,6 +23,8 @@ const MainNav = () => {
         else setLightMode();
     }
 
+    // const param = useParams();
+    // console.log(param);
 
     return (
         <div className="Main-nav-bar">
@@ -31,14 +33,29 @@ const MainNav = () => {
                 <Link to={'home'} className="Link-button">Home </Link>
                 <Link to="buy-sheet" className="Link-button"> Buy Sheet </Link>
                 <Link to="sell-sheet" className="Link-button"> Sell Sheet </Link>
-                <input
-                    // checkbox for theme web
-                    type="checkbox"
-                    id='darkmode-toggle'
-                    onChange={toggleTheme}
-                    defaultChecked={SelectedTheme === "dark"}
-                />
-                <img className="Profile" src="https://i.pravatar.cc/40" alt="Profile" />
+                <Link to="help" className="Link-button"> Help </Link>
+                <div className="theme-toggle-wrapper">
+                    <label className="toggle-switch">
+                        {/* // checkbox for theme web */}
+                        <input  type="checkbox" id='darkmode-toggle' onChange={toggleTheme} defaultChecked={SelectedTheme === "dark"} />
+                        <span className="slider">
+                            <div className="clouds">
+                                <svg viewBox="0 0 100 100" className="cloud cloud1">
+                                    <path
+                                        d="M30,45 Q35,25 50,25 Q65,25 70,45 Q80,45 85,50 Q90,55 85,60 Q80,65 75,60 Q65,60 60,65 Q55,70 50,65 Q45,70 40,65 Q35,60 25,60 Q20,65 15,60 Q10,55 15,50 Q20,45 30,45"
+                                    ></path>
+                                </svg>
+                                <svg viewBox="0 0 100 100" className="cloud cloud2">
+                                    <path
+                                        d="M30,45 Q35,25 50,25 Q65,25 70,45 Q80,45 85,50 Q90,55 85,60 Q80,65 75,60 Q65,60 60,65 Q55,70 50,65 Q45,70 40,65 Q35,60 25,60 Q20,65 15,60 Q10,55 15,50 Q20,45 30,45"
+                                    ></path>
+                                </svg>
+                            </div>
+                        </span>
+                    </label>
+                </div>
+                <img className="Profile" src="https://images2.alphacoders.com/129/1299701.jpg" alt="Profile" />
+                {/* <img className="Profile" src="https://i.pravatar.cc/40" alt="Profile" /> */}
             </div>
         </div>
     );

@@ -4,6 +4,7 @@ import Home from './page/Home'
 import RootLayout from './layouts/RootLayout';
 import SellSheet from './page/SellSheet';
 import BuySheet from './page/BuySheet';
+import Help from './page/Help';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       {path: "home", element: <Home />},
       {path: "sell-sheet", element: <SellSheet />},
       {path: "buy-sheet", element: <BuySheet />},
+      {path: "help", element: <Help />},
     ]
   }
 ]);

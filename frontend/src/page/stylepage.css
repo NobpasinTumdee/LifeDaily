@@ -1,0 +1,12 @@
+.Home-Ad {
+    display: flex;
+    justify-content: space-around;
+    margin: 5% 10%;
+}
+.Home-Ad-text {
+    width: 50%;
+    white-space: wrap;
+}
+.Home-Ad-text h1{
+    font-weight: 600;
+}
