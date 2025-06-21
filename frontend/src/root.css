@@ -23,6 +23,7 @@ body {
     background-color: var(--body_main_background);
     color: var(--body_text_color);
     font-family: "Mitr", sans-serif;
+    transition: 0.2s ease-in-out;
 }
 *::selection {
   background-color: var(--body_hover_text_color);

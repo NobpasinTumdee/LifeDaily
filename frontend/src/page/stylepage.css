@@ -10,3 +10,31 @@
 .Home-Ad-text h1{
     font-weight: 600;
 }
+
+
+
+
+
+
+
+/* help page drop down */
+.Help-text-header {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--body_text_color);
+}
+.Help-drop-down {
+    margin: 0 15%;
+    white-space: wrap;
+}
+.Help-drop-down-ul {
+    color: var(--body_text_color);
+}
+.Help-drop-down-ul h2{
+    font-weight: 400;
+    cursor: pointer;
+}
+.Help-drop-down-ul li{
+    font-weight: 300;
+    opacity: 0.8;
+}

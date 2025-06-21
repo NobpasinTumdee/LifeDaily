@@ -4,3 +4,4 @@
 <p>npm install</p>
 <p>npm install react@latest react-dom@latest</p>
 <p>npm install aos --save</p>
+<p>npm install --save-dev @types/aos</p>

@@ -1,10 +1,9 @@
 // rafce
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import '../root.css';
 import './stylecomponent.css';
 
 const MainNav = () => {
-
     //theme web
     const setDarkMode = () => {
         document.querySelector("body")?.setAttribute("data-theme", "dark");
@@ -25,19 +24,23 @@ const MainNav = () => {
 
     // const param = useParams();
     // console.log(param);
+    const location = useLocation();
+    const isActive = (path :string) => location.pathname === path;
 
     return (
         <div className="Main-nav-bar">
             <h2>LIFE DAILY</h2>
             <div className="sub-nav-bar">
-                <Link to={'home'} className="Link-button">Home </Link>
-                <Link to="buy-sheet" className="Link-button"> Buy Sheet </Link>
-                <Link to="sell-sheet" className="Link-button"> Sell Sheet </Link>
-                <Link to="help" className="Link-button"> Help </Link>
+                <Link to={'home'} className={`Link-button ${isActive('/home') ? 'active' : ''}`}>Home </Link>
+                <Link to="buy-sheet" className={`Link-button ${isActive('/buy-sheet') ? 'active' : ''}`}> Buy Sheet </Link>
+                <Link to="sell-sheet" className={`Link-button ${isActive('/sell-sheet') ? 'active' : ''}`}> Sell Sheet </Link>
+                <Link to="help" className={`Link-button ${isActive('/help') ? 'active' : ''}`}> Help </Link>
+                <p className="icon-nav">🔔</p>
+                <p className="icon-nav">🛒</p>
                 <div className="theme-toggle-wrapper">
                     <label className="toggle-switch">
                         {/* // checkbox for theme web */}
-                        <input  type="checkbox" id='darkmode-toggle' onChange={toggleTheme} defaultChecked={SelectedTheme === "dark"} />
+                        <input type="checkbox" id='darkmode-toggle' onChange={toggleTheme} defaultChecked={SelectedTheme === "dark"} />
                         <span className="slider">
                             <div className="clouds">
                                 <svg viewBox="0 0 100 100" className="cloud cloud1">
