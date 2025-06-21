@@ -1,20 +1,22 @@
 :root {
   --body_main_background: #F3F4F6;  /*พื้นหลังสุด*/
   --body_main_navbar: #FFFFFF;     /*พื้นหลังของ nav bar*/
-  --body_sub_navbar: #F8F7FF;      /*เมนู nav bar*/
   --body_text_color: #2a3749;       /*สีของข้อความหลัก*/
-  --body_hover_text_color: #9183FF; /*สีของข้อความหลักเมื่อกดค้าง*/
-  --text_nav_bar:#82848F;          /*สีจางๆของข้อความที่ nav bar*/
+  --body_hover_text_color: #fdb56c; /*สีของข้อความหลักเมื่อกดค้าง*/
+
+  --button: #dfd7af;
+  --text-button: #6d4b33;
 
   --line_header: #E7E9ED;
 }
 [data-theme="dark"] {
-  --body_main_background: #111827;
-  --body_main_navbar: #1F2937;
-  --body_sub_navbar: #363A65;
-  --body_text_color: #F3F4F6;
-  --body_hover_text_color: #7A6CF8;
-  --text_nav_bar:#82848F;
+  --body_main_background: #1C1C1C;
+  --body_main_navbar: #242424;
+  --body_text_color: #F5ECE6;
+  --body_hover_text_color: #DFD7AF;
+
+  --button: #242424;
+  --text-button: #DFD7AF;
   
   --line_header: #232C3C;
 }
@@ -24,6 +26,9 @@ body {
     color: var(--body_text_color);
     font-family: "Mitr", sans-serif;
     transition: 0.2s ease-in-out;
+}
+*::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
 }
 *::selection {
   background-color: var(--body_hover_text_color);

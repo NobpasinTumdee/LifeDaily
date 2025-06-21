@@ -5,6 +5,7 @@ const RootLayout = () => {
     return (
         <>
             <MainNav />
+            <div style={{height: '70px'}}></div>
             <Outlet />
         </>
     )

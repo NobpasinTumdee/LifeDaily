@@ -1,7 +1,10 @@
 .Main-nav-bar {
+  position: fixed;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
+  z-index: 100;
   padding: 0.5rem 0;
   background-color: var(--body_main_navbar);
   box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
@@ -117,8 +120,8 @@
 }
 
 .theme-toggle-wrapper input:checked+.slider {
-  background: linear-gradient(145deg, #2c3e50, #34495e);
-  box-shadow: 0 0 15px rgba(44, 62, 80, 0.5);
+  background: linear-gradient(145deg, #1C1C1C, #242424);
+  box-shadow: 0 0 15px #1C1C1C;
 }
 
 .theme-toggle-wrapper input:checked+.slider:before {
