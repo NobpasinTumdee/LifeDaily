@@ -12,7 +12,7 @@ app.use(cors()); // Allows Cross Domains
 app.use(morgan("dev")); // Show Logs
 app.use(express.json()); // For read JSON
 
-// Routing
+// Routing http://localhost:8000/auth/register
 app.use("/auth", authRoute);
 
 // Error handling
