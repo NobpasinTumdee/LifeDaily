@@ -4,14 +4,14 @@ import { object, string } from "yup";
 // req.body.email
 
 export const registerSchema = object({
-  email: string().email("Email ไม่ถูกต้อง").required("กรุณากรอก Email"),
-  name: string().min(3, "Name ต้องมากกว่า 3 อักขระ"),
-  password: string().min(6, "Password ต้องมากกว่า 6 อักขระ"),
+  Email: string().email("Email ไม่ถูกต้อง").required("กรุณากรอก Email"),
+  UserName: string().min(3, "UserName ต้องมากกว่า 3 อักขระ"),
+  Password: string().min(6, "Password ต้องมากกว่า 6 อักขระ"),
 });
 
 export const loginSchema = object({
-  email: string().email("Email ไม่ถูกต้อง").required("กรุณากรอก Email"),
-  password: string().min(6, "Password ต้องมากกว่า 6 อักขระ"),
+  Email: string().email("Email ไม่ถูกต้อง").required("กรุณากรอก Email"),
+  Password: string().min(6, "Password ต้องมากกว่า 6 อักขระ"),
 });
 
 export const validate = (schema) => async (req, res, next) => {

@@ -15,25 +15,25 @@ export const register = async (req, res, next) => {
     5. Response
   */
     // 1. Check body
-    const { email, name, password } = req.body;
+    const { Email, UserName, Password } = req.body;
     // 2. Check in DB
     const user = await prisma.user.findFirst({
       where: {
-        email: email,
+        Email: Email,
       },
     });
     if (user) {
       createError(400, "Email already exist!!!");
     }
     // 3. Encrypt Password
-    const hashPassword = bcrypt.hashSync(password, 10);
+    const hashPassword = bcrypt.hashSync(Password, 10);
 
     // 4. Insert into DB
     const result = await prisma.user.create({
       data: {
-        email: email,
-        name: name,
-        password: hashPassword,
+        Email: Email,
+        UserName: UserName,
+        Password: hashPassword,
       },
     });
 
@@ -55,19 +55,19 @@ export const login = async (req, res, next) => {
         5. Response
     */
     // 1 Validate
-    const { email, password } = req.body;
+    const { Email, Password } = req.body;
 
     // 2 Check Email
     const user = await prisma.user.findFirst({
       where: {
-        email: email,
+        Email: Email,
       },
     });
     if (!user) {
       createError(400, "Email or Password is Invalid!!");
     }
 
-    const checkPassword = bcrypt.compareSync(password, user.password);
+    const checkPassword = bcrypt.compareSync(Password, user.Password);
 
     if (!checkPassword) {
       createError(400, "Email or Password is Invalid!!");
@@ -76,7 +76,7 @@ export const login = async (req, res, next) => {
     //  4. Generate Token
     const payload = {
       id: user.id,
-      name: user.name,
+      UserName: user.UserName,
       role: user.role,
     };
     const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "1d" });
