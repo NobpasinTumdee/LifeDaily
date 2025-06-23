@@ -20,6 +20,7 @@ export const register = async (req, res, next) => {
     const user = await prisma.user.findFirst({
       where: {
         Email: Email,
+        deletedAt: null,// Query แบบไม่เอาที่ถูกลบแล้ว
       },
     });
     if (user) {
@@ -61,6 +62,7 @@ export const login = async (req, res, next) => {
     const user = await prisma.user.findFirst({
       where: {
         Email: Email,
+        deletedAt: null,// Query แบบไม่เอาที่ถูกลบแล้ว
       },
     });
     if (!user) {
