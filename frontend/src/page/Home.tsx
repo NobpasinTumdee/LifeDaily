@@ -22,12 +22,12 @@ const Home = () => {
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem sint laudantium soluta pariatur necessitatibus fugiat quo fugit corporis deleniti magni libero rem culpa dicta reprehenderit suscipit quis, at inventore illum?</p>
           <div className='group-home-button'>
             <p  className='Home-button'>Buy sheets</p>
-            <p data-aos="flip-left" className='Home-button-sell'>Sell sheets</p>
+            <p data-aos="zoom-in" data-aos-duration="2000" className='Home-button-sell'>Sell sheets</p>
           </div>
         </div>
 
-        <div className='picture-home-ad' data-aos="fade-left">
-          <img src="https://upload.wikimedia.org/wikipedia/en/b/b2/Hu_Tao_%28Genshin_Impact%29.png" alt="" data-aos="zoom-out-up" />
+        <div className='picture-home-ad' data-aos="fade-left" data-aos-duration="2500" >
+          <img src="https://upload.wikimedia.org/wikipedia/en/b/b2/Hu_Tao_%28Genshin_Impact%29.png" alt="" data-aos="zoom-out-up" data-aos-duration="1300" />
           <img className='picture-ad' src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/genshin-impact/b/bf/Ganyu_Genius_Invokation_Card_2.png" width={250} alt="" />
         </div>
       </div>

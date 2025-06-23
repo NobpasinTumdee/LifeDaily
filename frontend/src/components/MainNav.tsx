@@ -57,7 +57,7 @@ const MainNav = () => {
                         </span>
                     </label>
                 </div>
-                <img className="Profile" src="https://images2.alphacoders.com/129/1299701.jpg" alt="Profile" />
+                <Link to={'login'} style={{display:'flex'}}><img className="Profile" src="https://images2.alphacoders.com/129/1299701.jpg" alt="Profile" /></Link>
                 {/* <img className="Profile" src="https://i.pravatar.cc/40" alt="Profile" /> */}
             </div>
         </div>
