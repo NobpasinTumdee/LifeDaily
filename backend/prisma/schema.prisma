@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  UserID   Int     @id @default(autoincrement())
+  Email    String
+  UserName String
+  Password String
+  Role     Role    @default(USER)
+  Profile  String?
+
+  Sheets    Sheet[]     @relation("UserSheets")
+  BuySheets BuySheets[] @relation("UserBuys")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt  DateTime?    // null = ยังไม่ลบ, มีค่า = ลบแล้ว (soft delete)
+}
+
+model Sheet {
+  SheetID    Int    @id @default(autoincrement())
+  CourseCode String
+  SheetName  String
+  SheetTerm  Int
+  SheetYear  Int
+  SheetPrice Int
+  SheetSold  Int
+
+  UserID Int
+  Seller User @relation("UserSheets", fields: [UserID], references: [UserID])
+
+  BuySheets BuySheets[] @relation("SheetBuys")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt  DateTime?    // null = ยังไม่ลบ, มีค่า = ลบแล้ว (soft delete)
+}
+
+model BuySheets {
+  BuyID      Int      @id @default(autoincrement())
+  HistoryBuy DateTime
+  Evidence   String
+  StatusBuy  Boolean
+
+  SheetID Int
+  UserID  Int
+
+  Sheet Sheet @relation("SheetBuys", fields: [SheetID], references: [SheetID])
+  Buyer User  @relation("UserBuys", fields: [UserID], references: [UserID])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt  DateTime?    // null = ยังไม่ลบ, มีค่า = ลบแล้ว (soft delete)
+}
+
+enum Role {
+  USER
+  ADMIN
+}
