@@ -9,7 +9,7 @@ export const getUser = async (req, res, next) => {
                 deletedAt: null,
             }
         });
-        console.log(result);
+        // console.log(result);
         res.json({
             message: "get user success!",
             data: result,
