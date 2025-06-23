@@ -15,13 +15,43 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String
-  name      String
-  password  String
-  role      Role     @default(USER)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  UserID     Int          @id @default(autoincrement())
+  Email      String
+  UserName   String
+  Password   String
+  Role       Role         @default(USER)
+  Profile    String?
+
+  Sheets     Sheet[]      @relation("UserSheets")
+  BuySheets  BuySheets[]  @relation("UserBuys")
+}
+
+model Sheet {
+  SheetID     Int          @id @default(autoincrement())
+  CourseCode  String
+  SheetName   String
+  SheetTerm   Int
+  SheetYear   Int
+  SheetPrice  Int
+  SheetSold   Int
+
+  UserID      Int
+  Seller      User         @relation("UserSheets", fields: [UserID], references: [UserID])
+
+  BuySheets   BuySheets[]  @relation("SheetBuys")
+}
+
+model BuySheets {
+  BuyID       Int      @id @default(autoincrement())
+  HistoryBuy  DateTime
+  Evidence    String
+  StatusBuy   Boolean
+
+  SheetID     Int
+  UserID      Int
+
+  Sheet       Sheet    @relation("SheetBuys", fields: [SheetID], references: [SheetID])
+  Buyer       User     @relation("UserBuys", fields: [UserID], references: [UserID])
 }
 
 enum Role {
