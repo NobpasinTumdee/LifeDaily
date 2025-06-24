@@ -13,6 +13,7 @@ export const verifyToken = (req, res, next) => {
     const secretKey = process.env.JWT_SECRET ;
     const decoded = jwt.verify(token, secretKey);
     req.user = decoded; // ส่งข้อมูลผู้ใช้ที่ decode แล้วไปใช้งานต่อ
+    console.log(req.user);
     next();
   } catch (err) {
     return res.status(403).json({ message: "Invalid or expired token." });

@@ -77,9 +77,9 @@ export const login = async (req, res, next) => {
 
     //  4. Generate Token
     const payload = {
-      id: user.id,
+      UserID: user.UserID,
       UserName: user.UserName,
-      role: user.role,
+      Role: user.Role,
     };
     const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "1d" });
     console.log(token);
@@ -88,6 +88,7 @@ export const login = async (req, res, next) => {
       message: "Login Success!!!",
       payload: payload,
       token: token,
+      token_type: "Bearer",
     });
   } catch (error) {
     next(error);

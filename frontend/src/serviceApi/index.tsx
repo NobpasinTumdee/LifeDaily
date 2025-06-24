@@ -1,17 +1,6 @@
 import axios from "axios";
-// import type { UserInterface } from "./Interface";
+import type { UserInterface } from "./Interface";
 
-export interface UserRegisterInput {
-    Email: string;
-    UserName: string;
-    Password: string;
-}
-
-const data: UserRegisterInput = {
-    Email: "portest@gmail.com",
-    UserName: "PorGztest",
-    Password: "123456"
-};
 
 const apiUrl = 'http://localhost:8000'
 //=========================== Header Config =============================
@@ -27,11 +16,23 @@ const requestOptions = {
 
 //============================User========================================
 //register
-async function SignIn(data: UserRegisterInput) {
+async function SignIn(data: UserInterface) {
 
     return await axios
 
         .post(`${apiUrl}/auth/register`, data)
+
+        .then((res) => res)
+
+        .catch((e) => e.response);
+
+}
+//login
+async function UserLogin(data: UserInterface) {
+
+    return await axios
+
+        .post(`${apiUrl}/auth/login`, data)
 
         .then((res) => res)
 
@@ -51,29 +52,8 @@ async function getUser() {
 
 }
 
-export default {
+export {
     SignIn,
     getUser,
+    UserLogin,
 }
-
-
-
-// //============================User========================================
-// //login
-// async function SignIn(data: UserRegisterInput) {
-
-//   return await axios
-
-//     .post(`${apiUrl}/auth/register`, data)
-//     .then((res) => {
-//       console.log('✅ Register Success:', res.data);
-//       return res; // ส่ง response กลับไปให้คนที่เรียกใช้
-//     })
-//     .catch((e) => {
-//       console.error('❌ Register Error:', e.response?.data || e.message);
-//       return e.response; // หรือ throw e ถ้าอยากให้ไป catch ด้านนอก
-//     });
-
-// }
-
-// SignIn(data);
