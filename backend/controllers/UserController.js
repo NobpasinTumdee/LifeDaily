@@ -1,6 +1,4 @@
-import express from "express";
 import prisma from "../config/prisma.js";
-const router = express.Router();
 
 export const getUser = async (req, res, next) => {
     try {
@@ -9,7 +7,9 @@ export const getUser = async (req, res, next) => {
                 deletedAt: null,
             }
         });
-        // console.log(result);
+        if (result.length === 0) {
+            return res.json({ message: "No User in database!" });
+        }
         res.json({
             message: "get user success!",
             data: result,
@@ -18,6 +18,3 @@ export const getUser = async (req, res, next) => {
         next(error);
     }
 }
-router.get("/user", getUser);
-
-export default router;
